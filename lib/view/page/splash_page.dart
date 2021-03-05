@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:mzlx/utils/util.dart';
 import 'package:mzlx/constant/constant.dart';
+import 'package:mzlx/navigator_manager.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -67,7 +68,9 @@ class _SplashPageState extends State<SplashPage> {
         children: [
           Offstage(
             offstage: _state == 1,
-            child: Text('111111111111111111111111'),
+            child: Container(
+              child: Text('11'),
+            ),
           ),
           Offstage(
             offstage: _state != 1,
@@ -82,7 +85,9 @@ class _SplashPageState extends State<SplashPage> {
                 loop: false,
                 itemCount: _bannerList.length,
                 onTap: (int index) {
-                  print(index);
+                  if(index == 3) {
+                    NavigatorManager.instance.pushNamed('/home');
+                  }
                 }
               ),
             ),
